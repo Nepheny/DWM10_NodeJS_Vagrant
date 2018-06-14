@@ -1,0 +1,86 @@
+<%- include('parts/header'); -%>
+
+<main>
+    <% if(typeof champions !== 'undefined') { %>
+        <% champions.forEach(function(champion){ %>
+            <div class="adv-container">
+              <div>
+                <h2><%- champion.name -%></h2>
+                <img src="<%- champion.img -%>"/>
+                <button name="button" data-action="single" data-url="<%- champion.url -%>">infos</button>
+              </div>
+            </div>
+        <% }); %>
+    <% } else {;%>
+        <h1>Aucun champion !</h1>
+    <% }; %>
+</main>
+
+<section class="modal-hide" id="modal">
+  <div class="modal-container">
+    <div class="header">
+      <p class="name"></p>
+      <p class="desc"></p>
+      <img class="typeImg"/>
+    </div>
+    <div class="content">
+      <h4>Statistiques</h4>
+      <div class="stats">
+        <div class="column-stats">
+          <div>
+            <span>Santé : </span>
+            <p class="health"></p>
+          </div>
+          <div>
+            <span>Régen PV : </span>
+            <p class="health-regen"></p>
+          </div>
+          <div>
+            <span>Mana : </span>
+            <p class="mana"></p>
+          </div>
+          <div>
+            <span>Régen mana : </span>
+            <p class="mana-regen"></p>
+          </div>
+          <div>
+            <span>Portée : </span>
+            <p class="range"></p>
+          </div>
+        </div>
+        <div class="column-stats">
+          <div>
+            <span>Dégâts d'attaque : </span>
+            <p class="atk-dmg"></p>
+          </div>
+          <div>
+            <span>Vitesse d'attaque : </span>
+            <p class="atk-speed"></p>
+          </div>
+          <div>
+            <span>Armure : </span>
+            <p class="armor"></p>
+          </div>
+          <div>
+            <span>Résistance magique : </span>
+            <p class="magic-resist"></p>
+          </div>
+          <div>
+          <span>Vitesse de déplacement : </span>
+            <p class="mv-speed"></p>
+          </div>
+        </div>
+      </div>
+      <h4>Compétences</h4>
+      <div class="spells"></div>
+        <div class="passive"></div>
+        <div class="a-spell"></div>
+        <div class="z-spell"></div>
+        <div class="e-spell"></div>
+        <div class="r-spell"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('parts/footer'); -%>
